@@ -1,0 +1,13 @@
+# -*-Makefile-*- for fft_check_mpi
+# With -I option, specify a directory in which mpif.h and fftw3-mpi.f03 exist, if necessary.
+# With -L option, specify a directory in which FFTW3 libraries are installed, if necessary.
+##
+FC=mpxlf90_r
+FFLAGS =-q64 -O4 -qinfo=all -qreport -qfree=f90\
+        -I/home/t-nissie/SR16000/fftw-3.3.3-xlc-mpi/include
+LDFLAGS=-L/home/t-nissie/SR16000/fftw-3.3.3-xlc-mpi/lib -lfftw3 -lfftw3_mpi
+
+all: fft_check_mpi
+
+clean:
+	rm -f core* fft_check_mpi fft_check_mpi.lst a.lst *.o

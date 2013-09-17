@@ -1,0 +1,12 @@
+# -*-Makefile-*- for fft_check_mpi_only
+##
+FC=mpifrtpx
+FFLAGS =-Kfast,preex,array_private,auto -Qt -Free\
+        -I/usr/local/fftw/3.3/include
+LDFLAGS=-L/usr/local/fftw/3.3/lib64 -lfftw3_mpi -lfftw3
+
+fft_check_mpi: fft_check_mpi.F
+	$(FC) $(FFLAGS) -o $@ $< $(LDFLAGS)
+
+clean:
+	rm -f core* fft_check_mpi fft_check_mpi.o fft_check_mpi.lst

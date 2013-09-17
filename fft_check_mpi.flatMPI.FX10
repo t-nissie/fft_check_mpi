@@ -1,0 +1,21 @@
+#!/bin/sh
+#PJM -L "rscgrp=short"
+#PJM -L "elapse=1:00:00"
+#PJM -L    "node=8"
+#PJM --mpi "proc=128"
+#PJM -o fft_check_mpi.flatMPI.FX10.dat
+#PJM -e fft_check_mpi.flatMPI.FX10.err
+export FLIB_FASTOMP=TRUE
+export OMP_NUM_THREADS=1
+export PARALLEL=1
+export FLIB_CNTL_BARRIER_ERR=FALSE
+mpiexec ./fft_check_mpi 20 1024 1024 1024 in
+mpiexec ./fft_check_mpi 20 1024 1024 1024 out
+mpiexec ./fft_check_mpi 20 1200 1200 1200 in
+mpiexec ./fft_check_mpi 20 1200 1200 1200 out
+mpiexec ./fft_check_mpi 10 2048 2048 2048 in
+mpiexec ./fft_check_mpi 10 2048 2048 2048 out
+mpiexec ./fft_check_mpi 10 2400 2400 2400 in
+mpiexec ./fft_check_mpi 10 2400 2400 2400 out
+mpiexec ./fft_check_mpi 10 3600 3600 3600 in
+mpiexec ./fft_check_mpi 10 3600 3600 3600 out

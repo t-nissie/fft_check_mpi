@@ -1,0 +1,15 @@
+#!/bin/sh
+#PJM -L "rscgrp=debug"
+#PJM -L "elapse=0:30:00"
+#PJM -L    "node=8"
+#PJM --mpi "proc=128"
+#PJM -o fft_check_mpi.flatMPI.FX10_profiling.dat
+#PJM -e fft_check_mpi.flatMPI.FX10_profiling.err
+export OMP_NUM_THREADS=1
+export PARALLEL=1
+export FLIB_CNTL_BARRIER_ERR=FALSE
+mkdir -p profiling
+rm -f profiling/*
+fipp -C -Ihwm -m 4000 -d profiling mpiexec ./fft_check_mpi 100 2048 2048 2048 out
+##
+# fipppx -Ibalance,cpu,hwm -l 40  -A -d profiling > fft_check_mpi.flatMPI.FX10_PROFILE
