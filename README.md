@@ -12,13 +12,16 @@ FFTW
 ----
 It is very important that machines have the *de facto standard* and
 *ultra fast* FFT library, FFTW <http://www.fftw.org/> .
+
 See also:
 * <http://www.fftw.org/doc/Transposed-distributions.html>
 * <http://www.fftw.org/doc/Combining-MPI-and-Threads.html>
 
 How to build fft_check_mpi
 --------------------------
-There are some makefiles for SR16000, FX10, etc in flat MPI and in OpenMP+MPI hybrid parallelization.
+There are makefiles for some machines such as SR16000, FX10, etc.
+Flat MPI and OpenMP+MPI hybrid parallelization versions of makefiles are provided.
+
     $ make -f fft_check_mpi.flatMPI.Makefile.FX10-mpifrtpx
     $ make -f fft_check_mpi.hybrid.Makefile.SR16000-xlf90_r-fftw_xlc
 
@@ -27,6 +30,7 @@ How to execute fft_check_mpi
 fft_check_mpi requires five command line arguments.
 They are the number of iterations, Lx, Ly, Lz and
 in-place (in) or out-of-place (out). For example,
+
     $ mpirun -np 8 ./fft_check_mpi 100 512 512 512 out
 
 output, timing and GFLOPS
