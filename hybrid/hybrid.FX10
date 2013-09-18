@@ -3,9 +3,9 @@
 #PJM -L "elapse=1:00:00"
 #PJM -L    "node=32"
 #PJM --mpi "proc=32"
-#PJM -o fft_check_mpi.FX10.dat
-#PJM -e fft_check_mpi.FX10.err
-export PJM_JOBNAME=fft_check_mpi.FX10
+#PJM -o hybrid.FX10.dat
+#PJM -e hybrid.FX10.err
+export PJM_JOBNAME=hybrid.FX10
 export FLIB_FASTOMP=TRUE
 export OMP_NUM_THREADS=16
 export PARALLEL=16

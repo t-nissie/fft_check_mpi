@@ -3,8 +3,8 @@
 #PJM -L "elapse=1:00:00"
 #PJM -L    "node=8"
 #PJM --mpi "proc=8"
-#PJM -o fft_check_mpi.FX10_profiling.dat
-#PJM -e fft_check_mpi.FX10_profiling.err
+#PJM -o hybrid.FX10_profiling.dat
+#PJM -e hybrid.FX10_profiling.err
 export FLIB_FASTOMP=TRUE
 export OMP_NUM_THREADS=16
 export PARALLEL=16
