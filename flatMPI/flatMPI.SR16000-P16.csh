@@ -1,5 +1,5 @@
 #!/usr/bin/csh
-# Usage: submit ED general -largememory -jobtype parallel -n 16 -B -N -u t-nissie@imr.tohoku.ac.jp -exec fft_check_mpi.flatMPI.SR16000-P16.csh -J fft_check_mpi.flatMPI.SR16000-P16
+# Usage: submit ED general -largememory -jobtype parallel -n 16 -B -N -u t-nissie@imr.tohoku.ac.jp -exec flatMPI.SR16000-P16.csh -J flatMPI.SR16000-P16
 ##
 setenv MEMORY_AFFINITY MCM
 setenv MALLOCMULTIHEAP true

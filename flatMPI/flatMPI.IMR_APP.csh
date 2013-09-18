@@ -1,5 +1,5 @@
 #!/bin/csh
-# Usage: submit AEB general -n 4 -jobtype parallel -exec fft_check_mpi.flatMPI.IMR_APP.csh -J fft_check_mpi.flatMPI.IMR_APP
+# Usage: submit AEB general -n 4 -jobtype parallel -exec flatMPI.IMR_APP.csh -J flatMPI.IMR_APP
 ##
 app_mpi_launcher_mpich2.1.5_gnu ./fft_check_mpi 20  960  960  960 in
 app_mpi_launcher_mpich2.1.5_gnu ./fft_check_mpi 20  960  960  960 out

@@ -1,9 +1,9 @@
 #!/usr/bin/env gnuplot
-# Time-stamp: <2013-09-17 11:44:47 takeshi>
+# Time-stamp: <2013-09-18 11:24:54 takeshi>
 # Author: Takeshi NISHIMATSU
 ##
 set terminal postscript portrait enhanced dashed color 'Times-Roman' 12
-set output 'fft_check_mpi.flatMPI.out-of-place.eps'
+set output 'flatMPI.out-of-place.eps'
 set title "3-dimensional real{/Symbol \253}complex out-of-place FFT\nwith FFTW\\_MEASURE,\
 \nwithout final transposition, without padding\n\n"
 
@@ -41,18 +41,18 @@ set ytics ("100" 0,\
           "3200" 5)
 
 plot x t '' lt 1 lc 6,\
-     'fft_check_mpi.flatMPI.SR16000.1024x1024x1024.dat'\
+     'flatMPI.SR16000.1024x1024x1024.dat'\
      using (log($1/2)/log(2)):(log($14/100.00)/log(2)) t 'SR16000: 1024^3' w lp pt 4 lw 2 lt 4 lc 4,\
-     'fft_check_mpi.flatMPI.SR16000.2048x2048x2048.dat'\
+     'flatMPI.SR16000.2048x2048x2048.dat'\
      using (log($1/2)/log(2)):(log($14/100.00)/log(2)) t 'SR16000: 2048^3' w lp pt 6 lw 2 lt 3 lc 3,\
-     'fft_check_mpi.flatMPI.SR16000.4096x4096x4096.dat'\
+     'flatMPI.SR16000.4096x4096x4096.dat'\
      using (log($1/2)/log(2)):(log($14/100.00)/log(2)) t 'SR16000: 4096^3' w lp pt 8 lw 2 lt 2 lc 2,\
-     'fft_check_mpi.flatMPI.FX10.1024x1024x1024.dat'\
+     'flatMPI.FX10.1024x1024x1024.dat'\
      using (log($1/8)/log(2)):(log($12/100.00)/log(2)) t    'FX10: 1024^3' w lp pt 5 lw 2 lt 8 lc 8,\
-     'fft_check_mpi.flatMPI.FX10.2048x2048x2048.dat'\
+     'flatMPI.FX10.2048x2048x2048.dat'\
      using (log($1/8)/log(2)):(log($12/100.00)/log(2)) t    'FX10: 2048^3' w lp pt 7 lw 2 lt 5 lc 5
 
-!epstopdf.pl fft_check_mpi.flatMPI.out-of-place.eps
+!epstopdf.pl flatMPI.out-of-place.eps
 #Local variables:
-#  compile-command: "gnuplot fft_check_mpi.flatMPI.out-of-place.gp"
+#  compile-command: "gnuplot flatMPI.out-of-place.gp"
 #End:

@@ -3,8 +3,8 @@
 #PJM -L "elapse=1:00:00"
 #PJM -L    "node=8"
 #PJM --mpi "proc=128"
-#PJM -o fft_check_mpi.flatMPI.FX10.dat
-#PJM -e fft_check_mpi.flatMPI.FX10.err
+#PJM -o flatMPI.FX10.dat
+#PJM -e flatMPI.FX10.err
 export FLIB_FASTOMP=TRUE
 export OMP_NUM_THREADS=1
 export PARALLEL=1
