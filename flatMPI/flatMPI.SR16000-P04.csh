@@ -1,5 +1,5 @@
 #!/usr/bin/csh
-# Usage: submit EB general -largememory -jobtype parallel -n 4 -B -N -u t-nissie@imr.tohoku.ac.jp -exec flatMPI.SR16000-P04.csh -J flatMPI.SR16000-P04
+# Usage: submit EM general -jobtype parallel -n 4 -B -N -u t-nissie@imr.tohoku.ac.jp -exec flatMPI.SR16000-P04.csh -J flatMPI.SR16000-P04
 ##
 setenv MEMORY_AFFINITY MCM
 setenv MALLOCMULTIHEAP true
