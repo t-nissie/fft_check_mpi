@@ -5,6 +5,7 @@
 FC=mpif90
 FFLAGS =-Wall -O3 -fopenmp -ffree-form  -I/home/t-nissie/Linux-x86_64/include
 LDFLAGS=-lfftw3 -lfftw3_omp -lfftw3_mpi -L/home/t-nissie/Linux-x86_64/lib
+VPATH=..
 
 fft_check_mpi: fft_check_mpi.F
 

@@ -6,6 +6,7 @@ FC=mpxlf90_r
 FFLAGS =-q64 -O4 -qsmp=omp -qinfo=all -qreport -qfree=f90\
         -I/home/t-nissie/SR16000/fftw-3.3.3-xlc-mpi/include
 LDFLAGS=-L/home/t-nissie/SR16000/fftw-3.3.3-xlc-mpi/lib -lfftw3 -lfftw3_omp -lfftw3_mpi
+VPATH=..
 
 all: fft_check_mpi
 

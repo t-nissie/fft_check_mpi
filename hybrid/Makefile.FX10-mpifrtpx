@@ -5,6 +5,7 @@ FFLAGS =-Kfast,parallel,openmp,preex,array_private,auto -Qt -Free\
         -I/usr/local/fftw/3.3/include
 LDFLAGS=-L/usr/local/fftw/3.3/lib64 -lfftw3_mpi -lfftw3 -lfftw3_omp
 # Note that the order of -l options is important.
+VPATH=..
 
 fft_check_mpi: fft_check_mpi.F
 	$(FC) $(FFLAGS) -o $@ $< $(LDFLAGS)
