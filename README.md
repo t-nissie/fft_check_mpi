@@ -20,10 +20,11 @@ See also:
 How to build fft_check_mpi
 --------------------------
 There are makefiles for some machines such as SR16000, FX10, etc.
-Flat MPI and OpenMP+MPI hybrid parallelization versions of makefiles are provided.
+Flat MPI and OpenMP+MPI hybrid parallelization versions of makefiles
+are provided in flatMPI/ and hybrid/ directories.
 
-    $ make -f fft_check_mpi.flatMPI.Makefile.FX10-mpifrtpx
-    $ make -f fft_check_mpi.hybrid.Makefile.SR16000-xlf90_r-fftw_xlc
+    $ cd flatMPI; make -f Makefile.FX10-mpifrtpx
+    $ cd hybrid;  make -f Makefile.SR16000-xlf90_r-fftw_xlc
 
 How to execute fft_check_mpi
 ----------------------------
@@ -47,7 +48,7 @@ Giga FLOPS values are roughly estimated from 5N*log_2(N)/2 floating point operat
 
 Benchmark results
 -----------------
-![log log plot of GFLOPS](fft_check_mpi.flatMPI.out-of-place.jpg)
+![log log plot of GFLOPS](flatMPI/flatMPI.out-of-place.jpg)
 
 Flat MPI vs. OpenMP+MPI hybrid parallelization
 ----------------------------------------------
