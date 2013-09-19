@@ -6,7 +6,7 @@ It is written in Fortran, using FFTW, parallelized with MPI.
 
 Homepage and download
 ---------------------
-Go to <https://github.com/t-nissie/fft_check_mpi>.
+<https://github.com/t-nissie/fft_check_mpi>
 
 FFTW
 ----
@@ -69,6 +69,12 @@ Initial dummy loop
 ------------------
 On some platforms, initial MPI communication takes unpredictable time.
 Therefore, fft_check_mpi.F wast one dummy loop in the beginning.
+
+fft_check, a benchmark program for single node
+----------------------------------------------
+You can find a benchmark program for single node at
+<http://loto.sourceforge.net/feram/src/fft_check.html>.
+fft_check is parallelized only with OpenMP. 
 
 Copying and author
 ------------------
