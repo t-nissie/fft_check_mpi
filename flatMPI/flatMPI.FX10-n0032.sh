@@ -11,15 +11,19 @@ export PARALLEL=1
 export FLIB_CNTL_BARRIER_ERR=FALSE
 mpiexec ./fft_check_mpi  20 1024 1024 1024 in
 mpiexec ./fft_check_mpi  40 1024 1024 1024 in
+mpiexec ./fft_check_mpi 100 1024 1024 1024 in
+mpiexec ./fft_check_mpi 200 1024 1024 1024 in
 mpiexec ./fft_check_mpi  20 1024 1024 1024 out
 mpiexec ./fft_check_mpi  40 1024 1024 1024 out
+mpiexec ./fft_check_mpi 100 1024 1024 1024 out
+mpiexec ./fft_check_mpi 200 1024 1024 1024 out
 
-mpiexec ./fft_check_mpi  10 2048 2048 2048 in
 mpiexec ./fft_check_mpi  20 2048 2048 2048 in
-mpiexec ./fft_check_mpi  10 2048 2048 2048 out
+mpiexec ./fft_check_mpi  40 2048 2048 2048 in
 mpiexec ./fft_check_mpi  20 2048 2048 2048 out
+mpiexec ./fft_check_mpi  40 2048 2048 2048 out
 
-mpiexec ./fft_check_mpi  10 2560 2560 2560 in
 mpiexec ./fft_check_mpi  20 2560 2560 2560 in
-mpiexec ./fft_check_mpi  10 2560 2560 2560 out
+mpiexec ./fft_check_mpi  40 2560 2560 2560 in
 mpiexec ./fft_check_mpi  20 2560 2560 2560 out
+mpiexec ./fft_check_mpi  40 2560 2560 2560 out
