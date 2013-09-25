@@ -1,6 +1,6 @@
 #!/bin/sh
 #PJM -L "rscgrp=short"
-#PJM -L "elapse=1:00:00"
+#PJM -L "elapse=2:00:00"
 #PJM -L    "node=64"
 #PJM --mpi "proc=1024"
 #PJM -o flatMPI.FX10-n0064.out
@@ -14,10 +14,14 @@ mpiexec ./fft_check_mpi  40 1024 1024 1024 in
 mpiexec ./fft_check_mpi  20 1024 1024 1024 out
 mpiexec ./fft_check_mpi  40 1024 1024 1024 out
 
-mpiexec ./fft_check_mpi  10 2048 2048 2048 in
 mpiexec ./fft_check_mpi  20 2048 2048 2048 in
-mpiexec ./fft_check_mpi  10 2048 2048 2048 out
+mpiexec ./fft_check_mpi  40 2048 2048 2048 in
+mpiexec ./fft_check_mpi 100 2048 2048 2048 in
+mpiexec ./fft_check_mpi 200 2048 2048 2048 in
 mpiexec ./fft_check_mpi  20 2048 2048 2048 out
+mpiexec ./fft_check_mpi  40 2048 2048 2048 out
+mpiexec ./fft_check_mpi 100 2048 2048 2048 out
+mpiexec ./fft_check_mpi 200 2048 2048 2048 out
 
 mpiexec ./fft_check_mpi  10 3072 3072 3072 in
 mpiexec ./fft_check_mpi  20 3072 3072 3072 in
