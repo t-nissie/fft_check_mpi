@@ -4,6 +4,7 @@
 setenv MEMORY_AFFINITY MCM
 setenv MALLOCMULTIHEAP true
 echo "#" `hostname`
+echo '#  it.    Lx     Ly     Lz        N      place  th. proc.     t_plan   t_prep   t_itr0   t_calc  GFLOPS'
 poe ./fft_check_mpi 100 1024 1024 1024 in
 poe ./fft_check_mpi 200 1024 1024 1024 in
 poe ./fft_check_mpi 100 1024 1024 1024 out
