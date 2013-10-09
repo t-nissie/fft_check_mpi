@@ -1,0 +1,47 @@
+#!/usr/bin/csh -f
+#@ class = qsps64b
+#@ output = flatMPI.SR16000-P64.out
+#@ error  = flatMPI.SR16000-P64.err
+#@ environment = COPY_ALL
+#@ restart = no
+#@ job_name = flatMPI.SR16000-P64
+#@ notification = always
+#@ notify_user = t-nissie@imr.tohoku.ac.jp
+#@ job_type = parallel
+#@ network.MPI = sn_all,,US
+#@ bulkxfer = yes
+#@ node = 64
+#@ tasks_per_node = 32
+#@ task_affinity = cpu(1)
+#@ cpus_per_core = 1
+#@ comment = -n 64 -pm 32 -pt 2 -ap "general"
+#@ queue
+# Usage: submit SPS64b general -jcf fft_check_mpi.SR16000-P64.jcf
+##
+setenv LC_MESSAGES C
+setenv MEMORY_AFFINITY MCM
+setenv LANG C
+setenv MP_SHARED_MEMORY no
+setenv MP_PROCS 2048
+setenv HF_90OPTS '-FPRUNST(THREADNUM(1))'
+setenv OMP_NUM_THREADS 1
+setenv HF_ERR_STATUS_MODE 1
+##
+setenv MEMORY_AFFINITY MCM
+setenv MALLOCMULTIHEAP true
+echo "#" `hostname`
+echo '#  it.    Lx     Ly     Lz        N      place  th. proc.     t_plan   t_prep   t_itr0   t_calc  GFLOPS'
+poe ./fft_check_mpi  50 2048 2048 2048 in
+poe ./fft_check_mpi 100 2048 2048 2048 in
+poe ./fft_check_mpi  50 2048 2048 2048 out
+poe ./fft_check_mpi 100 2048 2048 2048 out
+
+poe ./fft_check_mpi  10 4096 4096 4096 in
+poe ./fft_check_mpi  20 4096 4096 4096 in
+poe ./fft_check_mpi  10 4096 4096 4096 out
+poe ./fft_check_mpi  20 4096 4096 4096 out
+
+poe ./fft_check_mpi  10 6144 6144 6144 in
+poe ./fft_check_mpi  20 6144 6144 6144 in
+poe ./fft_check_mpi  10 6144 6144 6144 out
+poe ./fft_check_mpi  20 6144 6144 6144 out
