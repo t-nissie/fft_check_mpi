@@ -1,10 +1,10 @@
 #!/usr/bin/env gnuplot
-# Time-stamp: <2013-09-29 07:38:33 takeshi>
+# Time-stamp: <2013-09-30 15:22:52 takeshi>
 # Author: Takeshi NISHIMATSU
 ##
 set terminal postscript portrait enhanced dashed color 'Times-Roman' 12
 set output 'flatMPI.out-of-place.eps'
-set title "3-dimensional real{/Symbol \253}complex out-of-place FFT\nflat MPI, with FFTW\\_MEASURE,\
+set title "3-dimensional real{/Symbol \253}complex out-of-place FFT\ndouble precision, flat MPI, with FFTW\\_MEASURE,\
 \nwithout final transposition, without padding\n\n"
 
 #set key outside
