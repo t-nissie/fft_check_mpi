@@ -30,8 +30,8 @@ poe ./fft_check_mpi  20 5120 5120 5120 in
 poe ./fft_check_mpi  10 5120 5120 5120 out
 poe ./fft_check_mpi  20 5120 5120 5120 out
 
-poe ./fft_check_mpi  10 6144 6144 6144 in
-poe ./fft_check_mpi  20 6144 6144 6144 in
+# poe ./fft_check_mpi  10 6144 6144 6144 in
+# poe ./fft_check_mpi  20 6144 6144 6144 in
 # poe ./fft_check_mpi  10 6144 6144 6144 out
 # poe ./fft_check_mpi  20 6144 6144 6144 out
 
