@@ -54,7 +54,12 @@ Flat MPI vs. OpenMP+MPI hybrid parallelization
 ----------------------------------------------
 fft_check_mpi.F can be compiled both in flat MPI and in OpenMP+MPI
 hybrid parallelization. In many cases of large scale 3-dimensional FFT,
-flat MPI is faster than hybrid parallelization.
+flat MPI is more efficient than hybrid parallelization.
+
+### cf. performance measurements of 1024^3 3-dimentional FFT on FX10
+       1 node  OpenMP      17.4 GFLOPS   7.4% (measured with fft_check.F)
+      64 node  flat MPI   713.5 GFLOPS   4.7%
+    1024 node  hybrid    4175.3 GFLOPS   1.7%
 
 Padding
 -------
@@ -74,7 +79,7 @@ fft_check, a benchmark program for single node
 ----------------------------------------------
 You can find a benchmark program for single node at
 <http://loto.sourceforge.net/feram/src/fft_check.html>.
-fft_check is parallelized only with OpenMP. 
+fft_check is parallelized only with OpenMP.
 
 Copying and author
 ------------------
