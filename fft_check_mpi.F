@@ -1,5 +1,5 @@
 ! fft_check_mpi.F -*-f90-*-
-! Time-stamp: <2013-09-17 13:02:57 takeshi>
+! Time-stamp: <2013-11-06 18:27:59 c25050>
 ! Author: Takeshi NISHIMATSU
 !!
 program fft_check_mpi
@@ -108,8 +108,8 @@ program fft_check_mpi
 
   call system_clock(c_r(2))
 
-  !   compute transform (j=0 is a dummy iteration.)
-  do j = 0, n_times
+  !   compute transform (j=0..-4 are dummy iterations.)
+  do j = -4, n_times
      if (j.eq.1) call system_clock(c_r(3))
 
      call fftw_mpi_execute_dft_r2c(plan_r2c, r, c)
