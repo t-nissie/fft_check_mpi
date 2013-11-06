@@ -39,7 +39,7 @@ output, timing and GFLOPS
 fft_check_mpi writes results into standard output (stdout).
 A result contains Lx, Ly, Lz, N(=LxLyLz), in-place or out-of-place,
 the number of OpenMP threads, the number of MPI processes, time for plan,
-time for preparation, time for one dummy loop, time for calculation,
+time for preparation, time for dummy loops, time for calculation,
 and GFLOPS value.
 
 Data for debug will be written into standard error output (stderr).
@@ -71,10 +71,10 @@ it reduces computational speed. To avoid "bank conflict",
 However, introduction of "padding" make code complicated.
 Therefore, "padding" is not introduced in this fft_check_mpi.F.
 
-Initial dummy loop
-------------------
-On some platforms, initial MPI communication takes unpredictable time.
-Therefore, fft_check_mpi.F wast one dummy loop in the beginning.
+Initial dummy loops
+-------------------
+On some platforms, initial loops takes unpredictable time.
+Therefore, fft_check_mpi.F wast 5 dummy loops in the beginning.
 
 fft_check, a benchmark program for single node
 ----------------------------------------------
