@@ -88,6 +88,8 @@ Initial dummy loops
 On some platforms, initial loops takes unpredictable time.
 Therefore, fft_check_mpi.F wast 5 dummy loops in the beginning.
 
+See "TLB miss" in <http://en.wikipedia.org/wiki/Translation_lookaside_buffer>.
+
 fft_check, a benchmark program for single node
 ----------------------------------------------
 You can find a benchmark program for single node at
