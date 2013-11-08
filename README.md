@@ -64,9 +64,9 @@ Table I. Performance measurements of 1024<sup>3</sup> 3-dimentional FFT on FX10.
 
 Table II. 1200<sup>3</sup> FFT on FX10.
 
-       1 node  OpenMP      ??.? GFLOPS   ?.?% (measured with fft_check.F)
-      75 node  flat MPI         GFLOPS      %
-    1200 node  hybrid           GFLOPS      % (FFTW_PATIENT)
+       1 node  OpenMP      21.8 GFLOPS   9.2% (measured with fft_check.F)
+      75 node  flat MPI   791.7 GFLOPS   4.5%
+    1200 node  hybrid    4570.9 GFLOPS   1.6% (FFTW_PATIENT)
 
 Table III. 1440<sup>3</sup> FFT on FX10.
 
