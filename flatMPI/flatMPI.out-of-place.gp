@@ -1,5 +1,5 @@
 #!/usr/bin/env gnuplot
-# Time-stamp: <2013-09-30 15:22:52 takeshi>
+# Time-stamp: <2013-11-08 12:17:39 takeshi>
 # Author: Takeshi NISHIMATSU
 ##
 set terminal postscript portrait enhanced dashed color 'Times-Roman' 12
@@ -48,9 +48,11 @@ plot x t '' lt 1 lc 6,\
      'flatMPI.SR16000.4096x4096x4096.dat'\
      using (log($1/2)/log(2)):(log($14/100.00)/log(2)) t 'SR16000: 4096^3' w lp pt 8 lw 2 lt 2 lc 2,\
      'flatMPI.FX10.1024x1024x1024.dat'\
-     using (log($1/8)/log(2)):(log($12/100.00)/log(2)) t    'FX10: 1024^3' w lp pt 5 lw 2 lt 8 lc 8,\
+     using (log($1/8)/log(2)):(log($14/100.00)/log(2)) t    'FX10: 1024^3' w lp pt 5 lw 2 lt 8 lc 8,\
      'flatMPI.FX10.2048x2048x2048.dat'\
-     using (log($1/8)/log(2)):(log($12/100.00)/log(2)) t    'FX10: 2048^3' w lp pt 7 lw 2 lt 5 lc 5
+     using (log($1/8)/log(2)):(log($14/100.00)/log(2)) t    'FX10: 2048^3' w lp pt 7 lw 2 lt 5 lc 5,\
+     'flatMPI.FX10.4096x4096x4096.dat'\
+     using (log($1/8)/log(2)):(log($14/100.00)/log(2)) t    'FX10: 4096^3' w lp pt 9 lw 2 lt 7 lc 7
 
 !epstopdf.pl flatMPI.out-of-place.eps
 #Local variables:

@@ -1,0 +1,4 @@
+# 3D FFT, real<->complex, out-of-place, 2013-11-06, FX10
+#node it.    Lx     Ly     Lz        N      place  th. proc.     t_plan   t_prep   t_dmmy   t_calc  GFLOPS
+ 128   20   4096   4096   4096     68719476736 F    1 2048       14.788    0.151  122.643  299.877   824.972
+ 256   20   4096   4096   4096     68719476736 F    1 4096       13.562    0.079  129.849  154.535  1600.868
