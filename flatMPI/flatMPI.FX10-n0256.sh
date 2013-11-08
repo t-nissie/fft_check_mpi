@@ -9,7 +9,7 @@ export FLIB_FASTOMP=TRUE
 export OMP_NUM_THREADS=1
 export PARALLEL=1
 export FLIB_CNTL_BARRIER_ERR=FALSE
-echo '#  it.    Lx     Ly     Lz        N      place  th. proc.     t_plan   t_prep   t_itr0   t_calc  GFLOPS'
+echo '#  it.    Lx     Ly     Lz        N      place  th. proc.     t_plan   t_prep   t_dmmy   t_calc  GFLOPS'
 mpiexec ./fft_check_mpi  20 4096 4096 4096 in
 mpiexec ./fft_check_mpi  40 4096 4096 4096 in
 mpiexec ./fft_check_mpi 100 4096 4096 4096 in
