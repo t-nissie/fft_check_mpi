@@ -30,5 +30,5 @@ mpiexec ./fft_check_mpi 200 3200 3200 3200 out
 
 mpiexec ./fft_check_mpi  10 4800 4800 4800 in
 mpiexec ./fft_check_mpi  20 4800 4800 4800 in
-mpiexec ./fft_check_mpi  10 4800 4800 4800 out
-mpiexec ./fft_check_mpi  20 4800 4800 4800 out
+#mpiexec ./fft_check_mpi  10 4800 4800 4800 out
+#mpiexec ./fft_check_mpi  20 4800 4800 4800 out
