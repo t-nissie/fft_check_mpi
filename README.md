@@ -83,6 +83,8 @@ it reduces computational speed. To avoid "bank conflict",
 However, introduction of "padding" make code complicated.
 Therefore, "padding" is not introduced in this fft_check_mpi.F.
 
+Compare 4096<sup>3</sup> and 4000<sup>3</sup> results of FX10 in the figure.
+
 Initial dummy loops
 -------------------
 On some platforms, initial loops takes unpredictable time.
