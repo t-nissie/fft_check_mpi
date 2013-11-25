@@ -1,6 +1,6 @@
 #!/bin/sh
 ##
-cat > index.html <<- EOF
+cat > index.html <<- HEAD
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
@@ -12,11 +12,11 @@ cat > index.html <<- EOF
 	  <link rel="shortcut icon" href="favicon.ico" />
 	</head>
 	<body>
-EOF
+HEAD
 
 ~/gems/github-markdown-0.6.3/bin/gfm --readme README.md >> index.html
 
-cat >> index.html <<- EOF
+cat >> index.html <<- TAIL
 	</body>
 	</html>
-EOF
+TAIL
