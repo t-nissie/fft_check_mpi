@@ -1,0 +1,97 @@
+/* -*-CSS-*-
+ * style.css for local README.html of fft_check_mpi.F
+ * Time-stamp: <2013-11-25 17:07:47 takeshi>
+ * Author: Takeshi NISHIMATSU
+ */
+body {
+  color:       black;
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h6 {
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+
+h1 {
+  color:            #dd0000;
+  background-color: #fff0f0;
+  font-size:        240%;
+}
+
+h2 {
+  border-top:       red 5px solid;
+  border-bottom:    red 1px solid;
+  padding-left:     8px;
+  background-color: #fff0f0;
+}
+
+h3 {
+  border-top:    red 2px solid;
+  border-bottom: red 1px solid;
+  padding-left:  4px;
+}
+
+h4 {
+  border-top:    red 1px solid;
+  padding-left:  4px;
+  background-color: #fff0f0;
+}
+
+h5 {
+  font-size:     larger;
+  font-family:   courier, verdana, arial, helvetica, sans-serif;
+  padding-top:   10px;
+  color:         darkred;
+}
+
+pre {
+  font-family:      monospace, courier, verdana, arial, helvetica, sans-serif;
+  padding-right:    0.5em;
+  padding-left:     0.5em;
+  padding-top:      0.1ex;
+  padding-bottom:   0.1ex;
+  margin-left:      0.5em;
+  margin-right:     1.0em;
+  white-space:      pre;
+  color:            darkred;
+  background-color: #f3f3f3;
+}
+
+img {
+    width:50%;
+    margin: auto;
+    display: block;
+}
+
+div.figure div.figcaption {
+    width: 60%;
+    margin: auto;
+    display: block;
+}
+
+div.navi {
+ text-align: right;
+ margin-right: 1.0em;
+}
+
+div.contents {
+    margin-left: 10%;
+}
+
+figure img{
+    width: 50%;
+    margin: auto;
+    display: block;
+}
+
+figure figcaption{
+    width: 60%;
+    margin: auto;
+    display: block;
+}
+
+table {
+    border: blue 2px solid;
+    text-align: center;
+    margin: auto;
+}
