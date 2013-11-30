@@ -1,5 +1,5 @@
 ! fft_check_mpi.F -*-f90-*-
-! Time-stamp: <2013-11-06 18:27:59 c25050>
+! Time-stamp: <2013-11-30 18:18:12 takeshi>
 ! Author: Takeshi NISHIMATSU
 !!
 program fft_check_mpi
@@ -12,7 +12,9 @@ program fft_check_mpi
   integer(C_INTPTR_T)                :: Lz
   real*8                             :: N_inv
   type(C_PTR)                        :: plan_r2c, plan_c2r, rdata, cdata
+  real(C_DOUBLE),            pointer :: r_tmp(:) !Rank remapping target must be rank 1
   real(C_DOUBLE),            pointer :: r(:,:,:)
+  complex(C_DOUBLE_COMPLEX), pointer :: c_tmp(:) !Rank remapping target must be rank 1
   complex(C_DOUBLE_COMPLEX), pointer :: c(:,:,:)
   integer(C_INTPTR_T)                :: i, alloc_local, local_Lz, local_z_offset
   integer(C_INTPTR_T)                ::                 local_Ly, local_y_offset
@@ -67,22 +69,26 @@ program fft_check_mpi
   alloc_local = fftw_mpi_local_size_3d_transposed(Lz, Ly, Lx/2+1, MPI_COMM_WORLD, &
        & local_Lz, local_z_offset, &
        & local_Ly, local_y_offset)
-  rdata    = fftw_alloc_real(2 * alloc_local); call c_f_pointer(rdata, r, [2*(Lx/2+1),Ly,local_Lz])
+  rdata    = fftw_alloc_real(2 * alloc_local); call c_f_pointer(rdata, r_tmp, [2*(Lx/2+1)*Ly*local_Lz])
   if (in_or_out) then
-     call                                           c_f_pointer(rdata, c, [   Lx/2+1, Lz,local_Ly])
+     call                                           c_f_pointer(rdata, c_tmp, [  (Lx/2+1)*Lz*local_Ly])
      cdata = c_null_ptr
   else
-     cdata = fftw_alloc_complex( alloc_local); call c_f_pointer(cdata, c, [   Lx/2+1, Lz,local_Ly])
+     cdata = fftw_alloc_complex( alloc_local); call c_f_pointer(cdata, c_tmp, [  (Lx/2+1)*Lz*local_Ly])
   end if
+
+  !   rank remapping or array dimension changing
+  r(0:2*(Lx/2+1)-1, 0:Ly-1, 0:local_Lz-1) => r_tmp
+  c(0:Lx/2,         0:Lz-1, 0:local_Ly-1) => c_tmp
 
   !   first-touch of r(:,:,:) and c(:,:,:)
 !$omp parallel do
-  do i = 1, local_Lz
+  do i = 0, local_Lz-1
      r(:, :, i) = 0.0d0
   end do
 !$omp end parallel do
 !$omp parallel do
-  do i = 1, local_Ly
+  do i = 0, local_Ly-1
      c(:, :, i) = (0.0d0, 0.0d0)
   end do
 !$omp end parallel do
@@ -97,8 +103,8 @@ program fft_check_mpi
 
   !   initialization of array r(:,:,:) with a wave
 !$omp parallel do
-  do i = 1, local_Lz
-     if (mod(int(i+local_z_offset),2).eq.1) then
+  do i = 0, local_Lz-1
+     if (mod(int(i+local_z_offset),2).eq.0) then
         r(:, :, i) = 0.1d0
      else
         r(:, :, i) = 0.0d0
@@ -108,7 +114,7 @@ program fft_check_mpi
 
   call system_clock(c_r(2))
 
-  !   compute transform (j=0..-4 are dummy iterations.)
+  !   compute transform (j=-4..0 are dummy iterations.)
   do j = -4, n_times
      if (j.eq.1) call system_clock(c_r(3))
 
@@ -118,7 +124,7 @@ program fft_check_mpi
      !      &                               ',  local_y_offset =', local_y_offset, &
      !      &                               ',   c(1,Lz/2+1,1) =', c(1,Lz/2+1,1)
 !$omp parallel do
-     do i = 1, local_Ly
+     do i = 0, local_Ly-1
         c(:, :, i) = c(:, :, i) * N_inv
      end do
 !$omp end parallel do
@@ -128,7 +134,7 @@ program fft_check_mpi
   call system_clock(c_r(4), count_rate, count_max)
 
   write(0,'(a,i5,a,i4,a,f19.15)') 'my_mpi_rank/size =', my_mpi_rank, '/', n_mpi_procs, &
-       &',   r(1,1,1) =', r(1,1,1)
+       &',   r(0,0,0) =', r(0,0,0)
 
   !   let them free
   call fftw_destroy_plan(plan_r2c)
