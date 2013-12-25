@@ -57,7 +57,8 @@ hybrid parallelization. In many cases of large scale 3-dimensional FFT,
 flat MPI is more efficient than hybrid parallelization.
 
 Table I. Performance measurements of 1024<sup>3</sup> 3-dimentional FFT on FX10.
-The number of nodes, parallelization method, time for one FFT and IFFT, GFLOPS value
+Conditions are real<->complex, out-of-place, double precision, without final transposition and without padding.
+The number of nodes, parallelization method, FFT time (forward+backward in milli-second), GFLOPS value
 and efficiency are listed.
 
        1 node  OpenMP    9260   ms     17.4 GFLOPS   7.4% (measured with fft_check.F)
