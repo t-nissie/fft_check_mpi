@@ -57,22 +57,24 @@ hybrid parallelization. In many cases of large scale 3-dimensional FFT,
 flat MPI is more efficient than hybrid parallelization.
 
 Table I. Performance measurements of 1024<sup>3</sup> 3-dimentional FFT on FX10.
+The number of nodes, parallelization method, time for one FFT and IFFT, GFLOPS value
+and efficiency are listed.
 
-       1 node  OpenMP      17.4 GFLOPS   7.4% (measured with fft_check.F)
-      64 node  flat MPI   713.5 GFLOPS   4.7%
-    1024 node  hybrid    4175.3 GFLOPS   1.7% (FFTW_PATIENT)
+       1 node  OpenMP    9260   ms     17.4 GFLOPS   7.4% (measured with fft_check.F)
+      64 node  flat MPI   225   ms    714.9 GFLOPS   4.7%
+    1024 node  hybrid      36.9 ms   4368.7 GFLOPS   1.8% (FFTW_PATIENT)
 
 Table II. 1200<sup>3</sup> FFT on FX10.
 
-       1 node  OpenMP      21.8 GFLOPS   9.2% (measured with fft_check.F)
-      75 node  flat MPI   791.7 GFLOPS   4.5%
-    1200 node  hybrid    4570.9 GFLOPS   1.6% (FFTW_PATIENT)
+       1 node  OpenMP   12170   ms     21.8 GFLOPS   9.2% (measured with fft_check.F)
+      75 node  flat MPI   335   ms    791.7 GFLOPS   4.5%
+    1200 node  hybrid      58.0 ms   4570.9 GFLOPS   1.6% (FFTW_PATIENT)
 
 Table III. 1440<sup>3</sup> FFT on FX10.
 
-       1 node  OpenMP      ??.? GFLOPS   ?.?% (requires 50GB of memory)
-      90 node  flat MPI   960.7 GFLOPS   4.5%
-    1440 node  hybrid    5224.8 GFLOPS   1.5% (FFTW_PATIENT)
+       1 node  OpenMP     ???   ms     ??.? GFLOPS   ?.?% (requires 50GB of memory)
+      90 node  flat MPI   489   ms    960.7 GFLOPS   4.5%
+    1440 node  hybrid      89.9 ms   5224.8 GFLOPS   1.5% (FFTW_PATIENT)
 
 Padding
 -------
