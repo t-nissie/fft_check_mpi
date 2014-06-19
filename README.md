@@ -56,22 +56,34 @@ fft_check_mpi.F can be compiled both in flat MPI and in OpenMP+MPI
 hybrid parallelization. In many cases of large scale 3-dimensional FFT,
 flat MPI is more efficient than hybrid parallelization.
 
-Table I. Performance measurements of 1024<sup>3</sup> 3-dimentional FFT on FX10.
+Table I. Performance measurements of 256<sup>3</sup> 3-dimentional FFT on FX10.
 Conditions are real<->complex, out-of-place, double precision, without final transposition and without padding.
 The number of nodes, parallelization method, FFT time (forward+backward in milli-second), GFLOPS value
 and efficiency are listed.
+
+       1 node  OpenMP      85.3 ms     23.6 GFLOPS  10.0% (measured with fft_check.F)
+      16 node  flat MPI    11.4 ms    177.1 GFLOPS   4.7%
+     256 node  hybrid       ?.? ms    ???.? GFLOPS   ?.?% (FFTW_PATIENT)
+
+Table II. 512<sup>3</sup> FFT on FX10.
+
+       1 node  OpenMP    1029   ms     17.6 GFLOPS   7.4% (measured with fft_check.F)
+      32 node  flat MPI    54.5 ms    332.4 GFLOPS   4.4%
+     512 node  hybrid       ?.? ms   ????.? GFLOPS   ?.?% (FFTW_PATIENT)
+
+Table III. 1024<sup>3</sup> FFT on FX10.
 
        1 node  OpenMP    9260   ms     17.4 GFLOPS   7.4% (measured with fft_check.F)
       64 node  flat MPI   225   ms    714.9 GFLOPS   4.7%
     1024 node  hybrid      36.9 ms   4368.7 GFLOPS   1.8% (FFTW_PATIENT)
 
-Table II. 1200<sup>3</sup> FFT on FX10.
+Table IV. 1200<sup>3</sup> FFT on FX10.
 
        1 node  OpenMP   12170   ms     21.8 GFLOPS   9.2% (measured with fft_check.F)
       75 node  flat MPI   335   ms    791.7 GFLOPS   4.5%
     1200 node  hybrid      58.0 ms   4570.9 GFLOPS   1.6% (FFTW_PATIENT)
 
-Table III. 1440<sup>3</sup> FFT on FX10.
+Table V. 1440<sup>3</sup> FFT on FX10.
 
        1 node  OpenMP     ???   ms     ??.? GFLOPS   ?.?% (requires 50GB of memory)
       90 node  flat MPI   489   ms    960.7 GFLOPS   4.5%
