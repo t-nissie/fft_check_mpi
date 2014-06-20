@@ -14,7 +14,7 @@ cat > index.html <<- HEAD
 	<body>
 HEAD
 
-~/gems/github-markdown-0.6.3/bin/gfm --readme $* >> index.html
+~/gems/github-markdown-0.6.4/bin/gfm --readme $* >> index.html
 
 cat >> index.html <<- TAIL
 	</body>
