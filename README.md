@@ -63,13 +63,13 @@ and efficiency are listed.
 
        1 node  OpenMP      85.3 ms     23.6 GFLOPS  10.0% (measured with fft_check.F)
       16 node  flat MPI    11.4 ms    177.1 GFLOPS   4.7%
-     256 node  hybrid       ?.? ms    ???.? GFLOPS   ?.?% (FFTW_PATIENT)
+     256 node  hybrid       3.8 ms    527.1 GFLOPS   0.9% (FFTW_PATIENT)
 
 Table II. 512<sup>3</sup> FFT on FX10.
 
        1 node  OpenMP    1029   ms     17.6 GFLOPS   7.4% (measured with fft_check.F)
       32 node  flat MPI    54.5 ms    332.4 GFLOPS   4.4%
-     512 node  hybrid       ?.? ms   ????.? GFLOPS   ?.?% (FFTW_PATIENT)
+     512 node  hybrid      11.5 ms   1577.2 GFLOPS   1.3% (FFTW_PATIENT)
 
 Table III. 1024<sup>3</sup> FFT on FX10.
 
