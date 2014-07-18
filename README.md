@@ -55,6 +55,8 @@ Flat MPI vs. OpenMP+MPI hybrid parallelization
 fft_check_mpi.F can be compiled both in flat MPI and in OpenMP+MPI
 hybrid parallelization. In many cases of large scale 3-dimensional FFT,
 flat MPI is more efficient than hybrid parallelization.
+Sometimes, however, using OpenMP+MPI hybrid parallelization is a good idea,
+because you can easily get much higher speed only with small changes of code.
 
 Table I. Performance measurements of 256<sup>3</sup> 3-dimentional FFT on FX10.
 Conditions are real<->complex, out-of-place, double precision, without final transposition and without padding.
