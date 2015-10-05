@@ -105,7 +105,7 @@ Compare 4096<sup>3</sup> and 4000<sup>3</sup> results of FX10 in the figure.
 Initial dummy loops
 -------------------
 On some platforms, initial loops take unpredictably long time.
-Therefore, fft_check_mpi.F wast 5 dummy loops in the beginning.
+Therefore, fft_check_mpi.F wastes 5 dummy loops in the beginning.
 
 See "TLB miss" in <http://en.wikipedia.org/wiki/Translation_lookaside_buffer>.
 
